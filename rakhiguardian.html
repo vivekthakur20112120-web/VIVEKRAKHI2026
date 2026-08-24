@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CATCH RAKHI 🎀</title>
+
+    <link rel="stylesheet" href="rakhiguardian.css">
+</head>
+
+<body>
+
+    <main class="game-container">
+
+        <!-- HEADER -->
+        <header class="game-header">
+
+            <div class="rakhi-icon">🎀</div>
+
+            <h1>CATCH RAKHI</h1>
+
+            <p class="subtitle">
+                Protect the Sacred Bond ❤️
+            </p>
+
+        </header>
+
+
+        <!-- COMPACT GAME HUD -->
+        <section class="game-hud">
+
+            <div class="hud-item">
+                <span>❤️ Score</span>
+                <strong id="score">0</strong>
+            </div>
+
+            <div class="hud-item">
+                <span>⭐ Best</span>
+                <strong id="highscore">0</strong>
+            </div>
+
+            <div class="hud-item">
+                <span>⏳ Time</span>
+                <strong id="timer">30</strong>
+            </div>
+
+        </section>
+
+
+        <!-- LOVE METER -->
+        <section class="love-section">
+
+            <div class="love-label">
+                <span>💖 Sister Love</span>
+                <span>300 ❤️</span>
+            </div>
+
+            <div class="meter">
+                <div id="loveMeter"></div>
+            </div>
+
+        </section>
+
+
+        <!-- GAME AREA -->
+        <section class="game-area">
+
+            <canvas
+                id="gameCanvas"
+                width="360"
+                height="600">
+            </canvas>
+
+        </section>
+
+
+        <!-- MOBILE / MOUSE CONTROLS -->
+        <section class="mobile-controls">
+
+            <button
+                id="leftBtn"
+                type="button"
+                aria-label="Move left">
+                ◀
+            </button>
+
+            <div class="control-hint">
+                <span>MOVE</span>
+                <small>← → / A D</small>
+            </div>
+
+            <button
+                id="rightBtn"
+                type="button"
+                aria-label="Move right">
+                ▶
+            </button>
+
+        </section>
+
+
+        <!-- INSTRUCTIONS -->
+        <section class="instructions">
+
+            <p>🎀 Catch the gifts</p>
+            <p>💣 Avoid the bombs</p>
+            <p>💻 Use Arrow Keys / A-D</p>
+            <p>📱 Touch the buttons on mobile</p>
+
+        </section>
+
+
+        <!-- START / RESTART BUTTONS -->
+        <section class="main-buttons">
+
+            <button
+                id="startBtn"
+                class="start-button"
+                type="button">
+                ▶ START GAME
+            </button>
+
+            <button
+                id="restartBtn"
+                class="restart-button"
+                type="button">
+                🔄 RESTART
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <!--
+        RESULT / START POPUP
+        This popup is controlled by JavaScript.
+    -->
+
+    <div
+        id="popup"
+        class="popup"
+        aria-hidden="true">
+
+        <div class="popup-content">
+
+            <div class="popup-rakhi">
+                🎀
+            </div>
+
+            <h1 id="popupTitle">
+                🎀 CATCH RAKHI
+            </h1>
+
+            <p id="popupMessage">
+                Catch the Rakhi gifts
+                and avoid the bombs! ❤️
+            </p>
+
+            <h2 id="popupScore">
+                Ready to play?
+            </h2>
+
+            <div class="result-buttons">
+
+                <button
+                    id="popupBtn"
+                    class="popup-main-button"
+                    type="button">
+                    🚀 START GAME
+                </button>
+
+                <button
+                    id="menuBtn"
+                    class="menu-button"
+                    type="button">
+                    🎮 GAME MENU
+                </button>
+
+               
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- SECRET GIFT -->
+    <button
+        id="giftBtn"
+        class="gift-button"
+        type="button">
+        🎁 Open My Secret Gift
+    </button>
+
+
+    <script src="rakhiguardian.js"></script>
+
+</body>
+
+</html>

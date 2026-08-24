@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+
+    <link rel="stylesheet" href="tictactoe.css">
+</head>
+
+<body>
+    
+<div class="container">
+
+    <h1>🎮 Tic Tac Toe 🎮</h1>
+
+    <div class="mode">
+
+        <button id="friendBtn">
+            👥 Play With Friend
+        </button>
+
+        <button id="botBtn">
+            🤖 Play With Bot
+        </button>
+
+    </div>
+
+    <h2 id="status">
+        Player X Turn
+    </h2>
+
+    <div class="board">
+
+        <button class="cell" data-index="0"></button>
+        <button class="cell" data-index="1"></button>
+        <button class="cell" data-index="2"></button>
+
+        <button class="cell" data-index="3"></button>
+        <button class="cell" data-index="4"></button>
+        <button class="cell" data-index="5"></button>
+
+        <button class="cell" data-index="6"></button>
+        <button class="cell" data-index="7"></button>
+        <button class="cell" data-index="8"></button>
+
+    </div>
+
+    <div class="scoreboard">
+
+        <h3>Score Board</h3>
+
+        <p>❌ Player X :
+            <span id="xScore">0</span>
+        </p>
+
+        <p>⭕ Player O :
+            <span id="oScore">0</span>
+        </p>
+
+        <p>🤝🤣 Draw :
+            <span id="drawScore">0</span>
+        </p>
+
+    </div>
+
+    <button id="restart">
+        🔄 Restart game
+    </button>
+
+    <br><br>
+
+    <a href="game.html">
+        <button>
+            ⬅ Back To game
+        </button>
+    </a>
+
+</div>
+
+<div id="popup" class="popup">
+    🎉 Welcome if you defats the bot then you get special surprise😊 ❤️
+</div>
+
+<script src="tictactoe.js"></script>
+
+</body>
+</html>

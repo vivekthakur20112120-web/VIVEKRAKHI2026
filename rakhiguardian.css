@@ -1,0 +1,1307 @@
+/* =========================================
+   CATCH RAKHI 🎀
+   PREMIUM RESPONSIVE GAME DESIGN
+========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+html {
+    min-height: 100%;
+}
+
+
+body {
+    min-height: 100vh;
+
+    font-family: "Poppins", sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    background:
+        radial-gradient(circle at top left, #fff0f5, transparent 35%),
+        radial-gradient(circle at bottom right, #ffe082, transparent 35%),
+        linear-gradient(135deg, #ff9a9e, #fad0c4, #ffd86f);
+
+    color: #333;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   MAIN GAME CONTAINER
+========================================= */
+
+.game-container {
+
+    width: 100%;
+    max-width: 560px;
+
+    padding: 24px;
+
+    text-align: center;
+
+    border-radius: 32px;
+
+    background: rgba(255, 255, 255, 0.72);
+
+    border: 2px solid rgba(255, 255, 255, 0.8);
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.22),
+        0 0 40px rgba(255, 20, 147, 0.15);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.game-header {
+    margin-bottom: 18px;
+}
+
+
+.rakhi-icon {
+
+    font-size: 55px;
+
+    display: inline-block;
+
+    animation: rakhiFloat 2.5s ease-in-out infinite;
+
+    filter: drop-shadow(0 5px 8px rgba(255, 20, 147, 0.35));
+}
+
+
+.game-header h1 {
+
+    margin-top: 4px;
+
+    color: #e91e63;
+
+    font-size: clamp(32px, 7vw, 48px);
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    text-shadow:
+        0 3px 10px rgba(233, 30, 99, 0.25);
+}
+
+
+.subtitle {
+
+    margin-top: 4px;
+
+    color: #666;
+
+    font-size: 16px;
+
+    font-weight: 500;
+}
+
+
+/* =========================================
+   COMPACT HUD
+========================================= */
+
+.game-hud {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 10px;
+
+    margin: 18px 0;
+}
+
+
+.hud-item {
+
+    padding: 10px 6px;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.9),
+            rgba(255, 228, 238, 0.85)
+        );
+
+    border: 1px solid rgba(255, 105, 180, 0.25);
+
+    box-shadow:
+        0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+
+.hud-item span {
+
+    display: block;
+
+    color: #777;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+
+.hud-item strong {
+
+    display: block;
+
+    margin-top: 3px;
+
+    color: #e91e63;
+
+    font-size: 22px;
+
+    font-weight: 800;
+}
+
+
+/* =========================================
+   LOVE METER
+========================================= */
+
+.love-section {
+
+    margin: 15px 0 18px;
+}
+
+
+.love-label {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 7px;
+
+    color: #e91e63;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+
+.meter {
+
+    width: 100%;
+
+    height: 14px;
+
+    padding: 2px;
+
+    overflow: hidden;
+
+    border-radius: 50px;
+
+    background: rgba(0, 0, 0, 0.12);
+}
+
+
+#loveMeter {
+
+    width: 0%;
+
+    height: 100%;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff1744,
+            #ff4081,
+            #ff9800,
+            #ffd700
+        );
+
+    box-shadow:
+        0 0 12px rgba(255, 20, 147, 0.55);
+
+    transition: width 0.3s ease;
+}
+
+
+/* =========================================
+   GAME AREA
+========================================= */
+
+.game-area {
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+#gameCanvas {
+
+    display: block;
+
+    width: 100%;
+
+    max-width: 360px;
+
+    height: auto;
+
+    aspect-ratio: 3 / 5;
+
+    border-radius: 26px;
+
+    border: 4px solid #ff4f9a;
+
+    background:
+        linear-gradient(
+            #87ceeb,
+            #fff8dc
+        );
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.2),
+        0 0 25px rgba(255, 20, 147, 0.25);
+
+    touch-action: none;
+
+    user-select: none;
+}
+
+
+/* =========================================
+   MOBILE / MOUSE CONTROL
+========================================= */
+
+.mobile-controls {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 22px;
+
+    margin-top: 18px;
+}
+
+
+.mobile-controls button {
+
+    width: 82px;
+
+    height: 58px;
+
+    border: none;
+
+    border-radius: 20px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff1493,
+            #ff69b4
+        );
+
+    font-size: 28px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px rgba(255, 20, 147, 0.3);
+
+    transition:
+        transform 0.15s,
+        box-shadow 0.15s;
+
+    touch-action: none;
+
+    user-select: none;
+}
+
+
+.mobile-controls button:active {
+
+    transform: scale(0.9);
+
+    box-shadow:
+        0 3px 10px rgba(255, 20, 147, 0.3);
+}
+
+
+.control-hint {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    color: #777;
+}
+
+
+.control-hint span {
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+
+.control-hint small {
+
+    font-size: 10px;
+}
+
+
+/* =========================================
+   INSTRUCTIONS
+========================================= */
+
+.instructions {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 6px;
+
+    margin-top: 18px;
+
+    color: #666;
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+
+.instructions p {
+
+    padding: 6px;
+
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.55);
+}
+
+
+/* =========================================
+   MAIN BUTTONS
+========================================= */
+
+.main-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 18px;
+}
+
+
+.main-buttons button {
+
+    padding: 12px 22px;
+
+    border: none;
+
+    border-radius: 50px;
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+    box-shadow:
+        0 7px 18px rgba(0, 0, 0, 0.15);
+}
+
+
+.main-buttons button:hover {
+
+    transform: translateY(-3px) scale(1.03);
+}
+
+
+.main-buttons button:active {
+
+    transform: scale(0.96);
+}
+
+
+.start-button {
+
+    background:
+        linear-gradient(
+            135deg,
+            #00c853,
+            #43a047
+        );
+}
+
+
+.restart-button {
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff9800,
+            #ff5722
+        );
+}
+
+
+/* =========================================
+   SECRET GIFT
+========================================= */
+
+.gift-button {
+
+    display: none;
+}
+
+
+/* =========================================
+   POPUP
+========================================= */
+
+.popup {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: none;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+
+    background:
+        rgba(20, 5, 15, 0.72);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    z-index: 9999;
+}
+
+
+.popup-content {
+
+    width: 100%;
+
+    max-width: 430px;
+
+    padding: 34px 25px 28px;
+
+    text-align: center;
+
+    border-radius: 32px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #fff0f6
+        );
+
+    border: 3px solid rgba(255, 105, 180, 0.5);
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.4),
+        0 0 50px rgba(255, 20, 147, 0.35);
+
+    animation:
+        popupShow 0.35s ease;
+}
+
+
+.popup-rakhi {
+
+    font-size: 65px;
+
+    animation:
+        popupFloat 2s ease-in-out infinite;
+}
+
+
+.popup-content h1 {
+
+    margin: 8px 0;
+
+    color: #e91e63;
+
+    font-size: 30px;
+
+    font-weight: 800;
+}
+
+
+.popup-content p {
+
+    color: #666;
+
+    font-size: 16px;
+
+    line-height: 1.6;
+
+    margin: 12px auto;
+
+    max-width: 330px;
+}
+
+
+.popup-content h2 {
+
+    margin: 15px 0 20px;
+
+    color: #ff9800;
+
+    font-size: 25px;
+}
+
+
+/* =========================================
+   RESULT BUTTONS
+========================================= */
+
+.result-buttons {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+.result-buttons button {
+
+    width: 100%;
+
+    padding: 13px 18px;
+
+    border: none;
+
+    border-radius: 50px;
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+    box-shadow:
+        0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+
+.result-buttons button:hover {
+
+    transform: translateY(-2px);
+}
+
+
+.popup-main-button {
+
+    background:
+        linear-gradient(
+            135deg,
+            #00c853,
+            #43a047
+        );
+}
+
+
+.menu-button {
+
+    background:
+        linear-gradient(
+            135deg,
+            #7c4dff,
+            #512da8
+        );
+}
+
+
+
+
+
+/* =========================================
+   COUNTDOWN
+========================================= */
+
+.countdown-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: none;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+        rgba(0, 0, 0, 0.42);
+
+    backdrop-filter: blur(5px);
+
+    z-index: 9000;
+}
+
+
+.countdown-number {
+
+    color: white;
+
+    font-size: clamp(90px, 25vw, 180px);
+
+    font-weight: 800;
+
+    text-shadow:
+        0 0 20px #ff1493,
+        0 0 50px #ffd700;
+
+    animation:
+        countdownPop 0.9s ease;
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes rakhiFloat {
+
+    0%, 100% {
+        transform: translateY(0) rotate(-3deg);
+    }
+
+    50% {
+        transform: translateY(-8px) rotate(3deg);
+    }
+}
+
+
+@keyframes popupFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+
+@keyframes popupShow {
+
+    from {
+        opacity: 0;
+        transform: scale(0.75);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+@keyframes countdownPop {
+
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 700px) {
+
+    body {
+        padding: 12px;
+        align-items: flex-start;
+    }
+
+    .game-container {
+        margin-top: 8px;
+        padding: 18px;
+        border-radius: 26px;
+    }
+
+}
+
+
+/* =========================================
+   PHONE
+========================================= */
+
+@media (max-width: 480px) {
+
+    body {
+        padding: 8px;
+    }
+
+    .game-container {
+        padding: 14px;
+        border-radius: 22px;
+    }
+
+    .rakhi-icon {
+        font-size: 45px;
+    }
+
+    .game-header h1 {
+        font-size: 32px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+    }
+
+    .game-hud {
+        gap: 6px;
+    }
+
+    .hud-item {
+        padding: 8px 4px;
+        border-radius: 14px;
+    }
+
+    .hud-item span {
+        font-size: 10px;
+    }
+
+    .hud-item strong {
+        font-size: 19px;
+    }
+
+    .mobile-controls {
+        gap: 12px;
+    }
+
+    .mobile-controls button {
+        width: 72px;
+        height: 54px;
+        font-size: 24px;
+    }
+
+    .instructions {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+
+    .main-buttons {
+        flex-direction: column;
+    }
+
+    .main-buttons button {
+        width: 100%;
+    }
+
+    .popup-content {
+        padding: 28px 18px 22px;
+    }
+
+    .popup-content h1 {
+        font-size: 25px;
+    }
+
+}
+
+
+/* =========================================
+   VERY SMALL PHONES
+========================================= */
+
+@media (max-width: 350px) {
+
+    .game-container {
+        padding: 10px;
+    }
+
+    .game-header h1 {
+        font-size: 27px;
+    }
+
+    .mobile-controls button {
+        width: 62px;
+        height: 50px;
+    }
+
+}
+/* =========================================
+   FULL SCREEN GAME MODE
+========================================= */
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+
+    padding: 0;
+}
+
+
+/* Main game area */
+
+.game-container {
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+
+    max-width: 650px;
+
+    margin: 0;
+
+    padding:
+        clamp(6px, 1.5vh, 14px)
+        clamp(8px, 2vw, 18px);
+
+    border-radius: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+}
+
+
+/* Header */
+
+.game-header {
+    flex-shrink: 0;
+    margin-bottom: 4px;
+}
+
+.rakhi-icon {
+    font-size: clamp(24px, 5vh, 42px);
+}
+
+.game-header h1 {
+    font-size: clamp(22px, 4vh, 34px);
+    margin: 0;
+}
+
+.subtitle {
+    font-size: clamp(10px, 1.8vh, 14px);
+    margin: 0;
+}
+
+
+/* Score */
+
+.game-hud {
+    flex-shrink: 0;
+
+    margin: 5px 0;
+
+    gap: 5px;
+}
+
+.hud-item {
+    padding: 4px;
+
+    border-radius: 10px;
+}
+
+.hud-item span {
+    font-size: 9px;
+}
+
+.hud-item strong {
+    font-size: clamp(14px, 2.5vh, 20px);
+}
+
+
+/* Love meter */
+
+.love-section {
+    flex-shrink: 0;
+
+    margin: 4px 0;
+}
+
+.love-label {
+    font-size: 9px;
+    margin-bottom: 2px;
+}
+
+.meter {
+    height: 7px;
+}
+
+
+/* =========================================
+   CANVAS AREA
+========================================= */
+
+.game-area {
+    flex: 1;
+
+    min-height: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    overflow: hidden;
+}
+
+
+#gameCanvas {
+
+    width: auto;
+
+    height: min(
+        100%,
+        calc(100dvh - 210px)
+    );
+
+    max-width: 100%;
+
+    aspect-ratio: 1 / 2;
+
+    object-fit: contain;
+
+    border-width: 3px;
+
+    border-radius: 16px;
+}
+
+
+/* =========================================
+   CONTROLS AT BOTTOM
+========================================= */
+
+.mobile-controls {
+
+    flex-shrink: 0;
+
+    margin-top: 5px;
+    margin-bottom: 3px;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 12px;
+}
+
+.mobile-controls button {
+
+    width: clamp(55px, 10vw, 75px);
+
+    height: clamp(38px, 6vh, 52px);
+
+    margin: 0;
+
+    padding: 0;
+
+    font-size: clamp(20px, 3vh, 28px);
+
+    border-radius: 14px;
+}
+
+
+/* =========================================
+   INSTRUCTIONS HIDDEN
+========================================= */
+
+.instructions {
+    display: none;
+}
+
+
+/* =========================================
+   START / RESTART BUTTONS
+========================================= */
+
+.main-buttons {
+
+    flex-shrink: 0;
+
+    margin: 3px 0 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 5px;
+}
+
+.main-buttons button {
+
+    margin: 0;
+
+    padding: 7px 15px;
+
+    font-size: 12px;
+}
+
+
+/* =========================================
+   VERY SHORT SCREENS
+========================================= */
+
+@media (max-height: 650px) {
+
+    .rakhi-icon {
+        display: none;
+    }
+
+    .game-header h1 {
+        font-size: 22px;
+    }
+
+    .subtitle {
+        display: none;
+    }
+
+    #gameCanvas {
+        height: calc(100dvh - 145px);
+    }
+
+}
+
+
+/* =========================================
+   PHONE
+========================================= */
+
+@media (max-width: 480px) {
+
+    .game-container {
+        max-width: none;
+    }
+
+    #gameCanvas {
+        height: calc(100dvh - 190px);
+        width: auto;
+    }
+
+}
+
+
+/* =========================================
+   TABLET / LAPTOP
+========================================= */
+
+@media (min-width: 700px) {
+
+    .game-container {
+        max-width: 650px;
+    }
+
+    #gameCanvas {
+        height: calc(100dvh - 210px);
+    }
+
+}
+/* ========================================
+   COUNTDOWN SCREEN
+======================================== */
+
+.countdown-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background: rgba(0, 0, 0, 0.75);
+
+    z-index: 999999;
+
+    pointer-events: none;
+
+}
+
+
+.countdown-number {
+
+    width: 180px;
+    height: 180px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff1493,
+            #ff69b4,
+            #ffd700
+        );
+
+    color: white;
+
+    font-size: 100px;
+
+    font-weight: 900;
+
+    text-shadow:
+        0 0 15px white,
+        0 0 30px #ff1493;
+
+    box-shadow:
+        0 0 30px #ff1493,
+        0 0 70px #ffd700;
+
+}
+
+
+@keyframes countdownPop {
+
+    0% {
+
+        transform: scale(0.3);
+
+        opacity: 0;
+
+    }
+
+    50% {
+
+        transform: scale(1.15);
+
+        opacity: 1;
+
+    }
+
+    100% {
+
+        transform: scale(1);
+
+        opacity: 1;
+
+    }
+
+}
+
+
+/* Phone */
+
+@media (max-width: 600px) {
+
+    .countdown-number {
+
+        width: 140px;
+        height: 140px;
+
+        font-size: 75px;
+
+    }
+
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rakhi Memory Challenge</title>
+
+    <link rel="stylesheet" href="memory.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🎀 Rakhi Memory Challenge 🎀</h1>
+
+        <p class="subtitle">
+            Match all the Raksha Bandhan gifts before time runs out!
+        </p>
+
+        <!-- Top Info -->
+
+        <div class="top-bar">
+
+            <div class="box">
+
+                ⏱ Time
+
+                <span id="timer">
+                    60
+                </span>
+
+            </div>
+
+            <div class="box">
+
+                ❤️ Bond
+
+                <span id="bond">
+                    0%
+                </span>
+
+            </div>
+
+            <div class="box">
+
+                ⭐ Matches
+
+                <span id="matches">
+                    0/8
+                </span>
+
+            </div>
+
+        </div>
+
+        <!-- Buttons -->
+
+        <div class="buttons">
+
+            <button id="startBtn">
+
+                ▶ Start game
+
+            </button>
+
+            <button id="restartBtn">
+
+                🔄 Restart
+
+            </button>
+
+            <button id="hintBtn">
+
+                💡 Hint (3)
+                <button id="playAgainBtn">
+    Play Again
+
+
+            </button>
+
+        </div>
+
+        <!-- Memory Grid -->
+
+        <div id="gameBoard" class="game-board">
+
+        </div>
+
+    </div>
+<!-- =========================
+        RESULT POPUP
+========================= -->
+
+<div id="popup" class="popup">
+
+    <div class="popup-box">
+
+        <h1 id="popupTitle"></h1>
+
+        <p id="popupMessage"></p>
+
+        <h2 id="popupStars"></h2>
+
+        <button id="playAgainBtn">
+
+            🔄 Play Again
+
+        </button>
+
+    </div>
+
+</div>
+    <script src="memory.js"></script>
+
+</body>
+
+</html>
